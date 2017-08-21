@@ -1,4 +1,6 @@
-
+/**
+* The memory allocator.
+*/
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -105,7 +107,6 @@ int Mem_Init(int sizeOfRegion)
 /* - Round up size to a multiple of 4 */
 /* - Traverse the list of blocks and allocate the best free block which can accommodate the requested size */
 /* -- Also, when allocating a block - split it into two blocks when possible */
-/* Tips: Be careful with pointer arithmetic */
 void* Mem_Alloc(int size)
 {
 
@@ -151,23 +152,6 @@ void* Mem_Alloc(int size)
 			
 	return (void*) ((char*) head + sizeof(block_header));
 
-	
-
-	// Check size and round it up to a multiple of 4
-	//	if(size % 4 != 0) {
-	//	while(size % 4 != 0) {
-	//		size++;
-	//	}
-	//}
-
-	// Search for the best fit block in the free list
-
-	// If a block is found, check to see if we can split it,
-	// i.e it has space leftover for a new block(header + payload)
-
-	// If split, update the size of the resulting blocks
-
-	// Mark the allocated block and return it 
 }
 
 /* Function for freeing up a previously allocated block */
