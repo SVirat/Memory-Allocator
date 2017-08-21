@@ -1,3 +1,7 @@
+/**
+* Removing allocated memory.
+*/
+
 #include <stdio.h>
 typedef struct block_hd{
   struct block_hd* next;
@@ -90,7 +94,6 @@ void Safe_Dump()
   fprintf(stderr,"Total free size = %d\n",free_size);
   fprintf(stderr,"Total size = %d\n",busy_size+free_size);
   fprintf(stderr,"**********************************************************************************************************\n");
-  // fflush(stdout);
   return;
 
 }
